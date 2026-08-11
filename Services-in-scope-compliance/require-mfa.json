@@ -1,0 +1,19 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "*"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "bool_equal": {
+          "qcs:MFAPresent": "false"
+        }
+      }
+    }
+  ]
+}

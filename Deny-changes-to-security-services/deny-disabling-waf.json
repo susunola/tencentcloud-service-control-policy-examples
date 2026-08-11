@@ -1,0 +1,25 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "waf:DeleteInstance",
+        "waf:ModifyDomainMode",
+        "waf:DeleteDomain",
+        "waf:DeleteCCRule",
+        "waf:DeleteCustomRule",
+        "waf:ModifyCustomRuleStatus",
+        "waf:ModifyCCRuleStatus"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/security-admin": "true"
+        }
+      }
+    }
+  ]
+}

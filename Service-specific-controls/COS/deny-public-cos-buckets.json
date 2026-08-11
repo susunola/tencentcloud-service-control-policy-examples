@@ -1,0 +1,24 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "cos:PutBucketACL",
+        "cos:PutObjectACL"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_equal": {
+          "cos:x-cos-acl": [
+            "public-read",
+            "public-read-write",
+            "authenticated-read"
+          ]
+        }
+      }
+    }
+  ]
+}

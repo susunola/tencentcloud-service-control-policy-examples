@@ -1,0 +1,22 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "csip:DeleteRisk",
+        "csip:ModifyRiskStatus",
+        "csip:DeleteAsset",
+        "csip:CloseService"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/security-admin": "true"
+        }
+      }
+    }
+  ]
+}

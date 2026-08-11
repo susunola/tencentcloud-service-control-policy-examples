@@ -1,0 +1,28 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "cam:CreateUser",
+        "cam:ModifyUser",
+        "cam:DeleteUser",
+        "cam:CreateAccessKey",
+        "cam:ModifyAccessKey",
+        "cam:DeleteAccessKey",
+        "cam:CreateLoginProfile",
+        "cam:ModifyLoginProfile",
+        "cam:DeleteLoginProfile",
+        "cam:UpdatePasswordPolicy"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/user-manager": "true"
+        }
+      }
+    }
+  ]
+}

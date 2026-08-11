@@ -1,0 +1,25 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "vpc:DeleteVpc",
+        "vpc:DeleteSubnet",
+        "vpc:DeleteRouteTable",
+        "vpc:DeleteNetworkAcl",
+        "vpc:DeleteNatGateway",
+        "vpc:DeleteVpnGateway",
+        "vpc:DeleteFlowLog"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/network-admin": "true"
+        }
+      }
+    }
+  ]
+}

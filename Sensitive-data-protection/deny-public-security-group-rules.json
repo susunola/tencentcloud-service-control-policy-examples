@@ -1,0 +1,20 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "vpc:CreateSecurityGroupPolicies",
+        "vpc:ModifySecurityGroupPolicies"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_equal": {
+          "vpc:CidrIp": "0.0.0.0/0"
+        }
+      }
+    }
+  ]
+}

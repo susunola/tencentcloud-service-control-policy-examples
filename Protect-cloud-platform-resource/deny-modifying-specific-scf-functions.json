@@ -1,0 +1,21 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "scf:DeleteFunction",
+        "scf:UpdateFunctionCode",
+        "scf:UpdateFunctionConfiguration"
+      ],
+      "resource": [
+        "qcs::scf:ap-guangzhou:uin/[UIN]:function/[PROTECTED_FUNCTION_PREFIX]*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/platform-operator": "true"
+        }
+      }
+    }
+  ]
+}

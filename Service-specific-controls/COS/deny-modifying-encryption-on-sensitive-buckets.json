@@ -1,0 +1,15 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "cos:PutBucketEncryption",
+        "cos:DeleteBucketEncryption"
+      ],
+      "resource": [
+        "qcs::cos:ap-guangzhou:uid/[UIN]:[SENSITIVE_BUCKET_PREFIX]*-[APPID]"
+      ]
+    }
+  ]
+}

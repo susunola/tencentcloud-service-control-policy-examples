@@ -1,0 +1,22 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "clb:DeleteLoadBalancer",
+        "clb:DeleteListener",
+        "clb:DeleteRule",
+        "clb:ModifyLoadBalancerAttributes"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/network-admin": "true"
+        }
+      }
+    }
+  ]
+}

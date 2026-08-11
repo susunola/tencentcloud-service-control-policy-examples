@@ -1,0 +1,11 @@
+*.pyc
+__pycache__/
+.DS_Store
+.workbuddy/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.swp
+*.swo

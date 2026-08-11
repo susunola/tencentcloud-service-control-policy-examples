@@ -1,0 +1,20 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "vpc:DeleteFlowLog",
+        "vpc:ModifyFlowLogAttribute"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/security-admin": "true"
+        }
+      }
+    }
+  ]
+}

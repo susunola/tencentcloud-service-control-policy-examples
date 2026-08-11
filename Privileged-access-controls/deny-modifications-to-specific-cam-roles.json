@@ -1,0 +1,24 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "cam:DeleteRole",
+        "cam:UpdateRoleDescription",
+        "cam:UpdateRoleConsoleLogin",
+        "cam:UpdateAssumeRolePolicy",
+        "cam:DetachRolePolicy",
+        "cam:AttachRolePolicy"
+      ],
+      "resource": [
+        "qcs::cam::uin/[UIN]:role/[PRIVILEGED_ROLE_PREFIX]*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/role": "privileged-admin"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "cloudaudit:DeleteAuditTrack",
+        "cloudaudit:ModifyAuditTrack",
+        "cloudaudit:StopLogging",
+        "cloudaudit:UpdateAudit"
+      ],
+      "resource": [
+        "qcs::cloudaudit:ap-guangzhou:uin/[UIN]:audit/[AUDIT_NAME_PREFIX]*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/security-admin": "true"
+        }
+      }
+    }
+  ]
+}

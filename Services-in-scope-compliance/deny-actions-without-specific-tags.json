@@ -1,0 +1,22 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "cvm:RunInstances",
+        "cos:PutBucket",
+        "vpc:CreateVpc",
+        "clb:CreateLoadBalancer"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "null_equal": {
+          "qcs:RequestTag/cost-center": "true"
+        }
+      }
+    }
+  ]
+}

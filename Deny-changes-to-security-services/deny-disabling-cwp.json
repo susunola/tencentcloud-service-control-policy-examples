@@ -1,0 +1,24 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "cwp:UninstallMachine",
+        "cwp:CloseProVersion",
+        "cwp:ModifyAlarmAttribute",
+        "cwp:DeleteMalwares",
+        "cwp:DeleteBruteAttacks",
+        "cwp:DeleteBashEvents"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/security-admin": "true"
+        }
+      }
+    }
+  ]
+}

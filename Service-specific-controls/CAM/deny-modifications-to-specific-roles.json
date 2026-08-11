@@ -1,0 +1,23 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "cam:DeleteRole",
+        "cam:UpdateRoleDescription",
+        "cam:UpdateAssumeRolePolicy",
+        "cam:DetachRolePolicy",
+        "cam:AttachRolePolicy"
+      ],
+      "resource": [
+        "qcs::cam::uin/[UIN]:role/[ROLE_NAME_PREFIX]*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/role-admin": "true"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "vpc:CreateNatGateway",
+        "vpc:CreateVpnGateway",
+        "vpc:CreateVpnConnection",
+        "vpc:AttachInternetGateway",
+        "vpc:ModifyInternetGateway",
+        "vpc:AssociateAddress"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "qcs:PrincipalTag/network-admin": "true"
+        }
+      }
+    }
+  ]
+}
