@@ -2,15 +2,10 @@
 
 # 腾讯云服务管控策略（SCP）示例
 
+<details open>
+<summary><b>中文</b></summary>
+
 <br>
-
----
-
-<p align="center">
-  <strong>中文</strong> &nbsp;|&nbsp; <a href="#-english">English</a>
-</p>
-
----
 
 ## 概述
 
@@ -80,8 +75,6 @@ python3 test_policies.py
 
 测试覆盖五层共 831 项断言：基础语法（编码/BOM/空格）、结构完整性、语义正确性（服务前缀/条件操作符/QCS 格式/无 AWS 引用）、一致性（README 交叉引用/文件完整性）、安全最佳实践（占位符格式/not_action 约束/缩进）。
 
----
-
 ## 相关文档
 
 | 文档 | 链接 |
@@ -99,17 +92,14 @@ Bug report 和 PR 欢迎。提交前请运行测试套件。
 
 MIT-0 License — 详见 [LICENSE](LICENSE)。
 
----
+</details>
+
+<details>
+<summary><b>English</b></summary>
 
 <br>
-<br>
-<br>
 
----
-
-## 🇬🇧 English
-
-### Overview
+## Overview
 
 **The SCP examples in this repository are for reference only.** Do not attach SCPs without thoroughly testing the impact on accounts. Test in a separate organization or OU before deploying to broader scopes.
 
@@ -177,7 +167,7 @@ python3 test_policies.py
 
 831 assertions across 5 levels: syntax (encoding/BOM/whitespace), structural (required keys, mutual exclusion), semantic (service prefixes, condition operators, QCS format, no AWS refs), consistency (README cross-reference, file completeness), and best practices (placeholder format, not_action safety, indentation).
 
-### Documentation
+## Documentation
 
 | Resource | Link |
 |----------|------|
@@ -186,10 +176,12 @@ python3 test_policies.py
 | TCO Management | https://www.tencentcloud.com/document/product/1031 |
 | CAM Best Practices | https://www.tencentcloud.com/document/product/598/10592 |
 
-### Contributing
+## Contributing
 
 Bug reports and pull requests welcome. Run the test suite before submitting.
 
-### License
+## License
 
 MIT-0 License — see [LICENSE](LICENSE).
+
+</details>
