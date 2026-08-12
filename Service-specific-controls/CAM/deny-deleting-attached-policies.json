@@ -5,19 +5,14 @@
       "effect": "deny",
       "action": [
         "cam:DeletePolicy",
-        "cam:ModifyPolicy",
+        "cam:UpdatePolicy",
         "cam:DetachUserPolicy",
         "cam:DetachGroupPolicy",
         "cam:DetachRolePolicy"
       ],
       "resource": [
         "*"
-      ],
-      "condition": {
-        "string_not_equal": {
-          "qcs:PrincipalTag/policy-admin": "true"
-        }
-      }
+      ]
     }
   ]
 }

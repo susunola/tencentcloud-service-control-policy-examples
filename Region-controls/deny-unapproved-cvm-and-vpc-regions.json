@@ -1,0 +1,39 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "deny",
+      "action": [
+        "cvm:*"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "cvm:region": [
+            "[APPROVED_REGION_1]",
+            "[APPROVED_REGION_2]"
+          ]
+        }
+      }
+    },
+    {
+      "effect": "deny",
+      "action": [
+        "vpc:*"
+      ],
+      "resource": [
+        "*"
+      ],
+      "condition": {
+        "string_not_equal": {
+          "vpc:region": [
+            "[APPROVED_REGION_1]",
+            "[APPROVED_REGION_2]"
+          ]
+        }
+      }
+    }
+  ]
+}

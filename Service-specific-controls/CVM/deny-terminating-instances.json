@@ -9,12 +9,7 @@
       ],
       "resource": [
         "qcs::cvm::uin/[UIN]:instance/*"
-      ],
-      "condition": {
-        "string_not_equal": {
-          "qcs:PrincipalTag/ops-admin": "true"
-        }
-      }
+      ]
     }
   ]
 }

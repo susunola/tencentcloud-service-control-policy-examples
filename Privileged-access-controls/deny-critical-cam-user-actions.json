@@ -4,25 +4,17 @@
     {
       "effect": "deny",
       "action": [
-        "cam:CreateUser",
-        "cam:ModifyUser",
+        "cam:AddUser",
+        "cam:UpdateUser",
         "cam:DeleteUser",
         "cam:CreateAccessKey",
-        "cam:ModifyAccessKey",
+        "cam:UpdateAccessKey",
         "cam:DeleteAccessKey",
-        "cam:CreateLoginProfile",
-        "cam:ModifyLoginProfile",
-        "cam:DeleteLoginProfile",
-        "cam:UpdatePasswordPolicy"
+        "cam:UpdatePasswordRules"
       ],
       "resource": [
         "*"
-      ],
-      "condition": {
-        "string_not_equal": {
-          "qcs:PrincipalTag/user-manager": "true"
-        }
-      }
+      ]
     }
   ]
 }

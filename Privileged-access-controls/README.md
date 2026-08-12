@@ -1,13 +1,11 @@
-## 特权访问控制示例
+## Privileged access controls
 
-确保角色和应用只被授予完成预期功能所需的最小权限。
+These policies use hard denies. Tencent Cloud TCO SCP does not support the AWS-style principal-tag exception pattern used by the original files. To create an exception, bind the policy only to the departments or member accounts that should be protected, and keep privileged administration in a separately governed node.
 
-| 策略 | 说明 |
-|------|------|
-|[禁止成员退出集团组织](deny-member-leave-organization.json)|禁止受影响的账号中的用户或角色退出集团账号组织。|
-|[防止成员账号管理根账号凭证](prevent-root-credentials-management.json)|集中管理成员账号的根用户访问权限。只允许具有特定标签的主账号或管理员角色对根账号凭证进行操作。|
-|[禁止根用户执行操作（特定例外）](deny-root-user-actions-except-exceptions.json)|限制根用户执行日常操作，仅允许特定例外（如查看账号摘要、修改 COS 存储桶策略等）。|
-|[禁止修改指定 CAM 角色](deny-modifications-to-specific-cam-roles.json)|限制账号中的 CAM 子用户修改特定 CAM 角色。|
-|[禁止关键 CAM 用户操作](deny-critical-cam-user-actions.json)|限制创建和修改 CAM 子用户、访问密钥、登录配置和密码策略，只允许具有 `user-manager` 标签的角色执行。|
-|[禁止修改账单信息](deny-billing-modification.json)|限制修改付款方式、税务偏好和联系信息。|
-|[禁止未授权的身份联合创建和修改](deny-unwarranted-identity-federation.json)|限制创建和修改 SAML/OIDC 身份提供商，避免创建未授权的替代访问路径。|
+| Policy | Description |
+|---|---|
+| [Deny member leave operations](deny-member-leave-organization.json) | Denies the documented organization APIs used to leave or remove members. |
+| [Protect selected CAM roles](deny-modifications-to-specific-cam-roles.json) | Denies changes to roles matching the configured resource prefix. |
+| [Protect critical CAM user operations](deny-critical-cam-user-actions.json) | Denies creation, modification, and deletion of sensitive CAM users and keys, plus password-rule changes. |
+| [Protect billing settings](deny-billing-modification.json) | Denies changes to billing and account settings covered by the listed actions. |
+| [Protect identity federation](deny-unwarranted-identity-federation.json) | Denies changes to SAML and OIDC identity providers. |

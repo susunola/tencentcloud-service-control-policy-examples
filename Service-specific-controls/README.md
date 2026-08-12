@@ -1,30 +1,34 @@
-## 服务专项管控
+## Service-specific controls
 
-针对特定腾讯云服务的管控策略。
+These examples use service actions, resource paths, and documented service-level condition keys. Hard-deny examples have no principal-tag exceptions; control the blast radius through TCO binding scope.
 
-### COS（对象存储）
-| 策略 | 说明 |
-|------|------|
-|[禁止删除 COS 存储桶或对象](COS/deny-deleting-cos-buckets-or-objects.json)|禁止删除指定的敏感 COS 存储桶或其中的对象。|
-|[禁止设置 COS 存储桶公开 ACL](COS/deny-public-cos-buckets.json)|禁止将 COS 存储桶或对象设置为公开读取或公开读写。|
-|[禁止修改敏感存储桶的加密配置](COS/deny-modifying-encryption-on-sensitive-buckets.json)|禁止修改或删除敏感存储桶的加密配置。|
-|[要求新存储桶禁用 ACL](COS/deny-acl-disablement-for-new-buckets.json)|要求所有新建存储桶使用私有 ACL。|
+### COS
 
-### CVM（云服务器）
-| 策略 | 说明 |
-|------|------|
-|[限制 CVM 实例类型](CVM/restrict-instance-types.json)|只允许使用指定类型的 CVM 实例。|
-|[禁止销毁 CVM 实例](CVM/deny-terminating-instances.json)|禁止非运维管理员销毁或关闭 CVM 实例。|
-|[禁止关闭镜像公开访问限制](CVM/deny-disabling-block-public-access-on-images.json)|禁止修改镜像共享权限，防止镜像被公开。|
+| Policy | Description |
+|---|---|
+| [Protect COS buckets and objects](COS/deny-deleting-cos-buckets-or-objects.json) | Denies deletion of a configured bucket and its objects. |
+| [Deny public COS ACLs](COS/deny-public-cos-buckets.json) | Denies public and authenticated-read bucket/object ACLs. |
+| [Protect sensitive bucket encryption settings](COS/deny-modifying-encryption-on-sensitive-buckets.json) | Denies changes to encryption settings for a configured bucket prefix. |
+| [Deny public bucket ACLs](COS/deny-public-bucket-acl.json) | Denies public ACL headers on bucket creation and bucket ACL updates. |
 
-### CAM（访问管理）
-| 策略 | 说明 |
-|------|------|
-|[禁止修改指定 CAM 角色](CAM/deny-modifications-to-specific-roles.json)|保护关键 CAM 角色不被删除或修改。|
-|[禁止删除已绑定的策略](CAM/deny-deleting-attached-policies.json)|禁止删除或修改已绑定的 CAM 策略。|
+### CVM
 
-### VPC（私有网络）
-| 策略 | 说明 |
-|------|------|
-|[禁止创建公网连接](VPC/deny-public-vpc-connectivity.json)|限制创建 NAT 网关、VPN 网关、公网 IP 等公网连接资源。|
-|[禁止删除 VPC 流日志](VPC/deny-vpc-flow-log-deletion.json)|限制删除或修改 VPC 流日志配置。|
+| Policy | Description |
+|---|---|
+| [Restrict CVM instance types](CVM/restrict-instance-types.json) | Denies `RunInstances` when `cvm:instance_type` is outside the approved list. |
+| [Protect CVM instances](CVM/deny-terminating-instances.json) | Denies termination and stop operations for the configured instance scope. |
+| [Protect image sharing](CVM/deny-disabling-block-public-access-on-images.json) | Denies the listed image sharing and attribute changes. |
+
+### CAM
+
+| Policy | Description |
+|---|---|
+| [Protect selected CAM roles](CAM/deny-modifications-to-specific-roles.json) | Denies changes to roles matching the configured resource prefix. |
+| [Protect attached CAM policies](CAM/deny-deleting-attached-policies.json) | Denies deletion, modification, and detachment actions in the listed scope. |
+
+### VPC
+
+| Policy | Description |
+|---|---|
+| [Deny public VPC connectivity changes](VPC/deny-public-vpc-connectivity.json) | Denies the listed NAT, VPN, internet-gateway, and address-association operations. |
+| [Protect VPC flow logs](VPC/deny-vpc-flow-log-deletion.json) | Denies deletion and modification of VPC flow-log configuration. |

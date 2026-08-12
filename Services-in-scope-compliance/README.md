@@ -1,8 +1,9 @@
-## 合规管控
+## Compliance controls
 
-确保集团成员账号的操作符合合规要求。
+This category contains one explicit allow-boundary example. It must replace an unrestricted allow policy at the target organization node; attaching it beside `FullQcloudAccess` does not narrow permissions.
 
-| 策略 | 说明 |
-|------|------|
-|[要求 MFA 认证](require-mfa.json)|拒绝任何未通过 MFA 认证的操作请求。建议与各具体服务的允许策略配合使用，确保所有关键操作都需通过 MFA 验证。|
-|[禁止不带指定标签创建资源](deny-actions-without-specific-tags.json)|要求创建 CVM、COS、VPC、CLB 等资源时必须附带 `cost-center` 等指定标签，以便成本归集和合规审计。|
+| Policy | Description |
+|---|---|
+| [Allow selected actions with required tags](allow-actions-with-required-tags.json) | Allows selected create operations only when `qcs:request_tag` contains the configured `cost-center&[COST_CENTER]` value. Expand the action/resource set deliberately and test each API because request-tag support is service-specific. |
+
+MFA enforcement is not included because TCO SCP does not document a `qcs:MFAPresent` condition key. See [UNSUPPORTED.md](../UNSUPPORTED.md) for the boundary and alternatives.

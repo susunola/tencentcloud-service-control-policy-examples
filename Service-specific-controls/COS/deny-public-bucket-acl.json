@@ -4,15 +4,18 @@
     {
       "effect": "deny",
       "action": [
+        "cos:PutBucket",
         "cos:PutBucketACL"
       ],
       "resource": [
-        "qcs::cos:ap-guangzhou:uid/[UIN]:*-[APPID]"
+        "*"
       ],
       "condition": {
         "string_equal": {
           "cos:x-cos-acl": [
-            "private"
+            "public-read",
+            "public-read-write",
+            "authenticated-read"
           ]
         }
       }

@@ -13,12 +13,7 @@
       ],
       "resource": [
         "qcs::cam::uin/[UIN]:role/[PRIVILEGED_ROLE_PREFIX]*"
-      ],
-      "condition": {
-        "string_not_equal": {
-          "qcs:PrincipalTag/role": "privileged-admin"
-        }
-      }
+      ]
     }
   ]
 }

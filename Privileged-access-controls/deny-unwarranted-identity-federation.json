@@ -5,20 +5,15 @@
       "effect": "deny",
       "action": [
         "cam:CreateSAMLProvider",
-        "cam:ModifySAMLProvider",
+        "cam:UpdateSAMLProvider",
         "cam:DeleteSAMLProvider",
-        "cam:CreateOIDCProvider",
-        "cam:ModifyOIDCProvider",
-        "cam:DeleteOIDCProvider"
+        "cam:CreateOIDCConfig",
+        "cam:UpdateOIDCConfig",
+        "cam:DeleteOIDCConfig"
       ],
       "resource": [
         "*"
-      ],
-      "condition": {
-        "string_not_equal": {
-          "qcs:PrincipalTag/identity-admin": "true"
-        }
-      }
+      ]
     }
   ]
 }

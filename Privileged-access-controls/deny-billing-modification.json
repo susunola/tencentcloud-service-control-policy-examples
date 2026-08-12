@@ -4,20 +4,11 @@
     {
       "effect": "deny",
       "action": [
-        "account:ModifyPaymentMethod",
-        "account:ModifyTaxPreference",
-        "account:ModifyContactInfo",
-        "billing:ModifyBillingAccount",
         "billing:ModifyBudget"
       ],
       "resource": [
         "*"
-      ],
-      "condition": {
-        "string_not_equal": {
-          "qcs:PrincipalTag/billing-admin": "true"
-        }
-      }
+      ]
     }
   ]
 }

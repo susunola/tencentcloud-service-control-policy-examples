@@ -11,12 +11,7 @@
       ],
       "resource": [
         "qcs::kms:ap-guangzhou:uin/[UIN]:key/*"
-      ],
-      "condition": {
-        "string_not_equal": {
-          "qcs:PrincipalTag/security-admin": "true"
-        }
-      }
+      ]
     }
   ]
 }

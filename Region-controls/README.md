@@ -1,7 +1,9 @@
-## 地域管控
+## Region controls
 
-在多账号环境中禁止使用某些地域。
+Tencent Cloud does not provide a universal `qcs:RequestedRegion` condition key. This example uses the documented service-level keys `cvm:region` and `vpc:region`, so it covers CVM and VPC operations only.
 
-| 策略 | 说明 |
-|------|------|
-|[仅允许使用已批准的地域](deny-access-based-on-requested-region.json)|拒绝在指定地域之外执行任何操作，同时为已批准的全局服务操作提供例外。请将 `ap-guangzhou` 和 `ap-shanghai` 替换为你需要使用的地域。注意：此示例可能未包含所有最新的全局腾讯云服务或操作。|
+Replace `[APPROVED_REGION_1]` and `[APPROVED_REGION_2]` with real region IDs such as `ap-guangzhou` and `ap-shanghai`. Add separate statements for other services using that service's documented region condition key. Treat operations without a usable region context as requiring separate validation.
+
+| Policy | Description |
+|---|---|
+| [Deny unapproved CVM and VPC regions](deny-unapproved-cvm-and-vpc-regions.json) | Denies CVM and VPC requests whose service-level region is not in the approved list. |

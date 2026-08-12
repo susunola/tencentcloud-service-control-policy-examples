@@ -2,7 +2,7 @@
   "version": "2.0",
   "statement": [
     {
-      "effect": "deny",
+      "effect": "allow",
       "action": [
         "cvm:RunInstances",
         "cos:PutBucket",
@@ -13,8 +13,10 @@
         "*"
       ],
       "condition": {
-        "null_equal": {
-          "qcs:RequestTag/cost-center": "true"
+        "for_any_value:string_equal": {
+          "qcs:request_tag": [
+            "cost-center&[COST_CENTER]"
+          ]
         }
       }
     }

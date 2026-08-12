@@ -11,7 +11,7 @@
       ],
       "condition": {
         "string_not_equal": {
-          "cvm:InstanceType": [
+          "cvm:instance_type": [
             "[APPROVED_INSTANCE_TYPE_1]",
             "[APPROVED_INSTANCE_TYPE_2]"
           ]

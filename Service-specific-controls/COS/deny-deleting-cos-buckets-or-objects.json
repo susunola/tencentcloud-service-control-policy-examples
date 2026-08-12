@@ -11,8 +11,8 @@
         "cos:DeleteMultipleObjects"
       ],
       "resource": [
-        "qcs::cos:ap-guangzhou:uid/[UIN]:[BUCKET_TO_PROTECT]-[APPID]",
-        "qcs::cos:ap-guangzhou:uid/[UIN]:[BUCKET_TO_PROTECT]-[APPID]/*"
+        "qcs::cos:ap-guangzhou:uid/[APPID]:[BUCKET_TO_PROTECT]-[APPID]",
+        "qcs::cos:ap-guangzhou:uid/[APPID]:[BUCKET_TO_PROTECT]-[APPID]/*"
       ]
     }
   ]

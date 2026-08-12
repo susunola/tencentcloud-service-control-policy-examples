@@ -11,12 +11,7 @@
       ],
       "resource": [
         "qcs::cloudaudit:ap-guangzhou:uin/[UIN]:audit/[AUDIT_NAME_PREFIX]*"
-      ],
-      "condition": {
-        "string_not_equal": {
-          "qcs:PrincipalTag/security-admin": "true"
-        }
-      }
+      ]
     }
   ]
 }

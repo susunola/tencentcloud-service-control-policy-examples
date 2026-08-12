@@ -11,12 +11,7 @@
       ],
       "resource": [
         "*"
-      ],
-      "condition": {
-        "string_not_equal": {
-          "qcs:PrincipalTag/security-admin": "true"
-        }
-      }
+      ]
     }
   ]
 }

@@ -4,7 +4,8 @@
     {
       "effect": "deny",
       "action": [
-        "organization:DeleteOrganization"
+        "organization:QuitOrganization",
+        "organization:DeleteOrganizationMembers"
       ],
       "resource": [
         "*"
